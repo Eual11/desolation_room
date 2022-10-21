@@ -1,132 +1,57 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P:400,700');
-*
+body
 {
+    background-color: #222831  ;
     font-family: Raleway;
-    font-style: bold;
+    font-style: Bold;
 }
-body{
-    background: #8E2DE2;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.container
+.header
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 600vh;
-}
-.content
-{
-    width: 30%;
-    min-height: 600px;
-    background-color: black;
-    margin-top: 10%;
-    border: 1px solid black;
-    
-    z-index: 1;
-    border-radius: 12px;
-}
-.user_logo 
-{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 100px;
-}
-.form_content
-{
-    display: flex;
-    justify-content: center;
-    margin-top: 30%;
-}
-.username
-{
-    border: none;
-    border-radius: 2px;
-    background-color: #222;
-    color: #eee;
-    padding-left: 12%;
-    border-bottom: 2px solid #D1D1D4;
-    position: relative;
-    height: 22px;
-    width: 180px;
-    transition: .2s;
-}
-.password
-{
-    border: none;
-    border-radius: 2px;
-    background-color: #222;
-    color: #eee;
-    padding-left: 12%;
-    border-bottom: 2px solid #D1D1D4;
-    position: relative;
-    height: 22px;
-    margin-bottom: 30px;
-    width: 180px;
-    transition: .2s;
-}
-.user_form
-{
-    margin-bottom: 5%;
-}
-.icon{
-position: relative;
-	top: 22px;
-    padding-left: 3px;
-	color: #bebebe;
-    z-index: 1;
-}
-.password:hover,.password:focus,.password:active
-{
-    transition: 0.2s ease-in;
-    outline: none;
-	border-bottom-color: #3a1be8;
-}
-.username:hover,.username:focus,.username:active
-{
-    transition: 0.2s ease-in;
-    outline: none;
-	border-bottom-color: #3a1be8;
-}
-.login_btn
-{
-    display: flex;
-    justify-content: center;
-}
-.login_shit
-{
-    width: 35%;
-    padding: 10px 0px;
-    margin-top: -10px;
-    border-radius: 20px;
-    background:linear-gradient(to right, #4A00E0, #8E2DE2);
-    font-size: Raleway;
-    color: black;
-	box-shadow: 0px 2px 2px #5C5696;
-	cursor: pointer;
-	transition: .2s;
-}
-.con_spon
-{
-    text-align: right;
-    box-sizing: content-box;
-    margin-top: 100%;
-}
-.sponsors
-{
-    display:inline;
-    position: relative;
-  
-    font-size: 8px;
-    flex-wrap: wrap;
-    font-family: 'Press Start 2P';
-    color:#3a1be8 ;
-    font-style: italic;
     width: fit-content;
-    overflow: hidden;
+    height:auto;
+    margin-left: 30%;
     
 }
+.message
+{
+    width:100%;
+    background:linear-gradient(to left,#393E46 , #222831);
+    text-align: center;
+    margin: 0px auto;
+    padding-right: 50%;
+    margin-top: 3%;
+    color: #EEEEEE;
+}
+span
+{
+    font-size: 150%;
+}
+.interface
+{
+    display: flex;;
+    justify-content: center;
+}
+.interface ul
+{
+    display: flex;
+}
+li {
 
+    display: flex;
+    justify-content: center;
+}
+button
+{
+    width: 90px;
+    height: 115%;
+    text-align: center;
+    margin: 5px;
+    background: #00ADB5 ;
+    color: #EEEEEE;
+    border-radius: 10px;
+    border: none;
+}
+.i
+{
+    color: green;
+}
