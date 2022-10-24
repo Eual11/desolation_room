@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P:400,700');
+*
+{
+    font-family: Raleway;
+    font-style: bold;
+}
+body{
+    background:    #222831 ;  /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to right, #4A00E0, #111519  #8E2DE2); 
+background: linear-gradient(to right, #4A00E0, #8E2DE2);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content
+{
+    width: 31%;
+    min-height: 600px;
+    background-color: #111519  ;
+    margin-top: 10%;
+    border: 1px solid #111519 ;
+    height: fit-content;
+    z-index: 1;
+    border-radius: 12px;
+    box-shadow: 6px -5px 5px rgb(10, 10, 10);
+}
+.user_logo 
+{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+}
+.form_content
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 30%;
+}
+.username
+{
+    border: none;
+    border-radius: 2px;
+    background-color: #222;
+    color: #eee;
+    padding-left: 12%;
+    border-bottom: 2px solid #D1D1D4;
+    position: relative;
+    height: 22px;
+    width: 180px;
+    transition: .2s;
+}
+.password
+{
+    border: none;
+    border-radius: 2px;
+    background-color: #222;
+    color: #eee;
+    padding-left: 12%;
+    border-bottom: 2px solid #D1D1D4;
+    position: relative;
+    height: 22px;
+    margin-bottom: 30px;
+    width: 180px;
+    transition: .2s;
+}
+.user_form
+{
+    margin-bottom: 5%;
+}
+.icon{
+position: relative;
+	top: 22px;
+    padding-left: 3px;
+	color: #bebebe;
+    z-index: 1;
+}
+.password:hover,.password:focus,.password:active
+{
+    transition: 0.2s ease-in;
+    outline: none;
+	border-bottom-color: #00ADB5;
+}
+.username:hover,.username:focus,.username:active
+{
+    transition: 0.2s ease-in;
+    outline: none;
+	border-bottom-color: #00ADB5;
+}
+.login_btn
+{
+    display: flex;
+    justify-content: center;
+}
+.login_shit
+{
+    max-width: 30%;
+    min-width:30%;
+    padding: 10px 0px;
+    border-radius: 20px;
+    margin-top: -10px;
+    background:#00ADB5;
+    font-size: Raleway;
+    color: black;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+.con_spon
+{
+    text-align: right;
+    box-sizing: content-box;
+    margin-top: 68%;
+}
+.sponsors
+{
+  
+    font-size: 8px;
+    flex-wrap: wrap;
+    font-family: 'Press Start 2P';
+    color:#00ADB5  ;
+    font-style: italic;
+    width: fit-content;
+    overflow: hidden;
+    
+}
+
