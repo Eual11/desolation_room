@@ -1,0 +1,46 @@
+#regForm
+{
+    background-color: #ffffff;
+    margin: 100px auto;
+    width: 30%;
+    padding: 40px;
+    min-width: 300px;
+
+}
+
+input 
+{
+    padding: 12px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway,'Times New Roman', Times, serif;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+}
+input.invalid
+{
+    background-color: #ff6969;
+}
+.tab
+{
+ display: none;
+}
+.step
+{
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #dddddd;
+    display: inline-block;
+    border: none;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.active 
+{
+    opacity: 1;
+}
+.finish
+{
+    background-color:#04AA6D;
+}
