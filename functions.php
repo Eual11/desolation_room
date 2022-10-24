@@ -8,9 +8,9 @@ $connection = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 
 if($connection->connect_error) die("fatal error");
 
-function createTable($tablename)
+function createTable($tablename,$query)
 {
-    queryMysql("CREATE TABLE IF NOT EXISTS $tablename");
+    queryMysql("CREATE TABLE IF NOT EXISTS $tablename($query)");
     echo "Created Table $tablename or it already exists <br>";
 }
 
