@@ -55,3 +55,61 @@ button
 {
     color: green;
 }
+.info
+{
+    margin-top:5%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center
+}
+textarea{
+    width: 100%;
+    margin-bottom:0%;
+    background-color: #222831;
+    color:#eee;
+    padding:10px;
+    border-radius:4px;
+}
+#image_input
+{
+    width:100%;
+    color:#eee;
+    
+}
+input::file-selector-button {
+    font-weight: bold;
+    color:#eee;
+    background-color:#00ADB5;
+    padding: 0.5em;
+    outline:none;
+    border:none;
+    border-radius:6px;
+    
+}
+.profile 
+{
+    display: grid;
+    grid-template-columns: 20% 100px 350px;
+    margin-left:15%;
+    margin-top:50px;
+    margin-bottom: -20px;
+    gap:14px;
+    
+    
+}
+#pfp 
+{
+    border-radius: 50%;
+    box-shadow: 4px 4px 5px rgb(10, 10, 10);
+}
+#submit_profile
+{
+    border-radius: 10px;
+    width:15%;
+    height: 20px;
+    background-color: #00ADB5;
+    color: #eee;
+    border: none;
+    box-shadow: 4px 4px 5px rgb(10, 10, 10);
+
+}

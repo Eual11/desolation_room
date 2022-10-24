@@ -43,10 +43,12 @@ function sanitizeString($string)
 }
 function showUser($user)
 {
+    echo "<div class= 'profile'>";
+    echo"<span> </span>";
     global $connection;
-    if(file_exists("$user.jpg"))
-    {
-        echo "<img src='$user.jpg' style 'float:left;'>";
+    if(file_exists("$user.jpg") || true)
+    { 
+        echo "<img id = 'pfp' src='img/image.jpg' style= 'float:left;'>";
     }
     $result = $connection->query("SELECT * FROM profiles WHERE user ='$user'");
 
@@ -57,8 +59,9 @@ function showUser($user)
     }
     else 
     {
-        echo "<p>Nothing to show here</p>";
+        echo "<p style= 'color: #eee;'>A chasm appears upon the face of my watch. My past decapitated. I search blindly for what I will not find.</p>";
     }
+    echo "</div>";
 }
 
 ?>

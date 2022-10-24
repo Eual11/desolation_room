@@ -15,6 +15,7 @@ if (isset($_POST['user']))
         {
             session_start();
             $_SESSION['user']= $user;
+            $_SESSION['pass'] =$pass;
             die("Logged in bastard");
         }
         else
