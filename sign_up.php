@@ -20,7 +20,9 @@ if(isset($_POST['user']) && isset($_POST['password']))
         $error = "";
 
         $result = queryMysql("Insert into members values('$user','$pass')");
-        die("done");
+        $result = queryMysql("insert into profiles values('$user','')");
+        header("Location:login.php");
+        exit;
     }
 
 }

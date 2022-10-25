@@ -15,8 +15,9 @@ if (isset($_POST['user']))
         {
             session_start();
             $_SESSION['user']= $user;
-            $_SESSION['pass'] =$pass;
-            die("Logged in bastard");
+            $_SESSION['pass'] = $pass;
+            header("Location:profile.php");
+            exit;
         }
         else
         {

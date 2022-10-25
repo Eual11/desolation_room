@@ -46,16 +46,23 @@ function showUser($user)
     echo "<div class= 'profile'>";
     echo"<span> </span>";
     global $connection;
-    if(file_exists("$user.jpg") || true)
+    if(file_exists("img/$user.jpg"))
     { 
-        echo "<img id = 'pfp' src='img/image.jpg' style= 'float:left;'>";
+        echo "<img id = 'pfp' src='img/$user.jpg' style= 'float:left;'>";
+    }
+    else 
+    {
+        echo "<img id = 'pfp' src='img/default.jpg' style= 'float:left;'>";   
     }
     $result = $connection->query("SELECT * FROM profiles WHERE user ='$user'");
 
     if($result->num_rows)
     {
         $row = $result->fetch_array(MYSQLI_ASSOC);
-         echo stripslashes($row['text'])."<br>";
+        $text = $row['text'];
+        $text = substr($text,0,110);
+        echo "<p style= 'color: #eee;'>$text</p>";
+   
     }
     else 
     {

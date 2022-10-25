@@ -34,16 +34,17 @@ span
 .interface ul
 {
     display: flex;
+    flex-wrap:wrap;
 }
 li {
 
     display: flex;
     justify-content: center;
+    margin-bottom:15px;
 }
 button
 {
     width: 90px;
-    height: 115%;
     text-align: center;
     margin: 5px;
     background: #00ADB5 ;
@@ -111,5 +112,30 @@ input::file-selector-button {
     color: #eee;
     border: none;
     box-shadow: 4px 4px 5px rgb(10, 10, 10);
+
+}
+li:hover
+{
+    background-color: #222831;
+}
+.members
+{
+    display: flex;
+    width: 450px;
+    margin:10px auto;
+    padding: 5px;
+    border-bottom: 1px solid #393E46;
+}
+
+.mem_interface
+{
+    margin: auto 10px;
+    font-family: Raleway;
+    color: #fff;
+    font-size: 12px;
+}
+.mempfp
+{
+    border-radius: 50%;
 
 }
