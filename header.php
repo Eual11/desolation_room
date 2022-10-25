@@ -64,7 +64,7 @@ else
     <ul>
         <li> <button form="home"> <i class="fa fa-home" style="font-size: 100%; color:#EEEEEE" aria-hidden="true"></i> Home</i></button> </li>
         <li><button form = "members"> <i style="color: #EEEEEE; font-size:100%;" class="fa fa-sign-in" aria-hidden="true"></i> Members</button> </li>
-        <li> <button><i style="color:#EEEEEE; font-size: 100%;" class="fa fa-user-circle" aria-hidden="true"></i>  Friends</button> </li>
+        <li> <button form ='friends'><i style="color:#EEEEEE; font-size: 100%;" class="fa fa-user-circle" aria-hidden="true"></i>  Friends</button> </li>
         <br>
         <li><button><i style="color:#EEEEEE; font-size:100%"; class="fa fa-comment"></i> Messages</button></li>
         <li><button><i style="color:#EEEEEE; font-size: 100%;" class="fa-solid fa-user-pen"></i> Edit Profile</button></li>
@@ -73,7 +73,7 @@ else
     <form id = 'home' method='post' action='#'></form>
     <form id = 'logout' method='post' action='logout.php'></form>
     <form id = 'members' method='post' action='members.php'></form>
-    <form id = 'c' method='post' action='#'></form>
+    <form id = 'friends' method='post' action='friends.php'></form>
     <form id = 'd' method='post' action='#'></form>
 
 </div>    
