@@ -45,14 +45,14 @@ aside input:hover
 aside img 
 {
     border-radius: 50%;
-    margin-left: 20px;
+    text-align: left;
+
 }
 aside ul 
 {
     list-style: none;
     padding: 0px;
     padding-left: 0px;
-    padding-inline-start: 0px;
 }
 aside div
 {
@@ -64,9 +64,8 @@ aside div
     
 }
 aside li{
-	padding:10px 0;
+	padding:0px 0;
     text-align: left;
-    margin-left: -90px;
     
 }
 aside li:hover
@@ -220,4 +219,19 @@ button
     color: #EEEEEE;
     border-radius: 10px;
     border: none;
+}
+aside li{
+    display: block;
+    margin-left: 10px;
+    overflow-x: hidden;
+}
+
+
+main 
+{
+    height: 800px;
+}
+main li 
+{
+    display: block;
 }
