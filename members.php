@@ -5,6 +5,11 @@ if (!$loggedin)
 {
     header("Location:login.php");
 } 
+if(isset($_GET['view']))
+{
+    header("Location:members.php");
+    die();
+}
 
 /*$img_location = "img/default.jpg";
 $image = imagecreatefromjpeg("img/default.jpg");
@@ -28,7 +33,7 @@ else if (isset($_GET['remove']))
 
 
 
-echo "<h3 style='color:#fff; text-align:center;font-size:14px;'>Your Friend's :</h3>";
+echo "<h3 style='color:#fff; text-align:center;font-size:14px;'>Other Desolation Room Users :</h3>";
 
 
 for ($i =0; $i <$num_rows; ++$i )
@@ -57,7 +62,7 @@ _I;
     echo <<<_MEM
     <div class="members">
            <img width='50' height='50' class="mempfp" src="img/$member.jpg">
-           <div class="mem_interface"><span>$member</span>$icon
+           <div class="mem_interface"><span><a style ="color:#eee; text-decoration:none;" href="profile.php?view=$member" >$member</a></span>$icon
            <a class='mem_request' style='text-align:right;'href='#'><i class="fa-brands fa-facebook-messenger"></i></a>
          
            </div>

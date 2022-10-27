@@ -3,6 +3,11 @@
 require_once "header.php";
 echo "<link rel='stylesheet' href='style.css'>";
 
+if(isset($_GET['view']))
+{
+    $user = $_GET['view'];
+}
+
 $result = queryMysql("Select * from profiles where user = '$user'");
 if($result->num_rows)
 {
@@ -88,9 +93,17 @@ if(isset($_FILES['image']['name']))
 
 
 }
-echo " <h3 style='color: #eeeee; text-align: center;'>Your Profile: </h3>"; 
-showUser($user);
 
+
+
+echo " <h3 style='color: #eeeee; text-align: center;'>$user's Profile: </h3>"; 
+showUser($user);
+if(isset($_GET['view']))
+
+{
+if($_GET['view'] == $_SESSION['user'])
+
+{
 echo <<<_INFO
 <div class = "info">
 <form style="text-align: center;" id="info" method="post" action = "profile.php" enctype="multipart/form-data"> 
@@ -104,5 +117,23 @@ echo <<<_INFO
         </body>
 </html>
 _INFO;
+}
+}
+else 
+{
+    echo <<<_INFO
+<div class = "info">
+<form style="text-align: center;" id="info" method="post" action = "profile.php" enctype="multipart/form-data"> 
+            <h3>Say somthing about yourself and/or upload a profile picture</h3>
+
+            <textarea name="text" size=100 placeholder="BIO">$text</textarea>
+            <input id="image_input" name="image" size="14" type="file">
+            <input id='submit_profile' type = 'submit' value = 'Save'>
+            </form>
+            </div>  
+        </body>
+</html>
+_INFO;
+}
 
 ?>
