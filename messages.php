@@ -10,7 +10,7 @@ if(!isset($_SESSION['user']))
 echo <<<_HEADER
 <!DOCTYPE html>
 <head>
-<title>chat layout</title>
+<title></title>
 <link href="chat_style.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -38,7 +38,7 @@ echo <<<_HEADER
     </div>    
 _HEADER;
 $cur_user = $_SESSION['user']; #mock name i created to acess the db
-$result = queryMysql("select recip from messages where auth = '$cur_user' order by time desc");
+$result = queryMysql("select recip from messages where auth = '$cur_user' union select auth from messages where recip = 'cur_user'");
 $num_row = $result->num_rows;
 $row1 = $result->fetch_array(MYSQLI_NUM);
 $recip = $row1[0];
@@ -57,6 +57,18 @@ echo <<<_ASIDE
 
 _ASIDE;
 $result = queryMysql("select recip from messages where auth = '$cur_user' group by recip order by time");
+$num_row = $result->num_rows;
+for($i =0; $i < $num_row; ++$i)
+{
+    $row = $result->fetch_array(MYSQLI_NUM);
+    echo <<<__users
+    <li id="$row[0]" onclick= 'recieve("$row[0]","$cur_user")'> <img width ='55' heigh='55' src="img/$row[0].jpg" alt="">
+    <div style="font-size:17px">$row[0]<br> &nbsp;
+    <span style="color:aqua; font-size:14px; ">online</span> </div>
+</li>
+__users;
+}
+$result = queryMysql("select auth from messages where recip = '$cur_user'group by recip order by time");
 $num_row = $result->num_rows;
 for($i =0; $i < $num_row; ++$i)
 {
