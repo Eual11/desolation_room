@@ -42,6 +42,12 @@ $result = queryMysql("select recip from messages where auth = '$cur_user' order 
 $num_row = $result->num_rows;
 $row1 = $result->fetch_array(MYSQLI_NUM);
 $recip = $row1[0];
+if(isset($_GET['recip']))
+{
+    $recip = sanitizeString($_GET['recip']);
+    echo "<script>alert('rip and tear until it's done')</script>";
+}
+
 echo <<<_ASIDE
 <div id="container">
 <aside>
@@ -56,7 +62,7 @@ for($i =0; $i < $num_row; ++$i)
 {
     $row = $result->fetch_array(MYSQLI_NUM);
     echo <<<__users
-    <li id="$row[0]" onclick= 'recieve("$row[0]")'> <img width ='60' heigh='60' src="img/$row[0].jpg" alt="">
+    <li id="$row[0]" onclick= 'recieve("$row[0]","$cur_user")'> <img width ='55' heigh='55' src="img/$row[0].jpg" alt="">
     <div style="font-size:17px">$row[0]<br> &nbsp;
     <span style="color:aqua; font-size:14px; ">online</span> </div>
 </li>
@@ -72,18 +78,12 @@ _last;
 echo <<<_MAIN
 
 <main id="chat_beholder">
-            <header> <img width ='60' heigh='60' src="img/$recip.jpg" alt="">
+            <header> <img width ='55' heigh='55' src="img/$recip.jpg" alt="">
                 <div>$recip
                     <br>
                     <span id="last_seen">Last Seen Recently</span>   
                 </div></header>
                 <ul id="chat">
-                <li class="you" ><div class="message">Hello there, this shit isn't bad at all lmao </div></li>
-                <li class="you" ><div class="message">lacks some features of basic chat interface but it's enough</div></li>
-                <li class="you" ><div class="message">now you have to implement image and multimedia sharing</div></li>
-                <li class="you" ><div class="message">alongside, last seen,delivery date, delete,edit message features</div></li>
-                <li class="me"><div class="message">I know i have to do this all but i am too tired</div></li>
-                <li class="you" ><div class="message">You need to sleep</div></li>
                 
             </ul>
 
@@ -95,7 +95,7 @@ echo <<<_FOOTER
 <footer>
 
                     <textarea placeholder="Type your message"></textarea>
-                    <a onclick='send("$recip")' href="#"><span class="material-symbols-rounded">
+                    <a onclick='send("$recip","$cur_user")' href="#"><span class="material-symbols-rounded">
                         send
                         </span></a>
                     

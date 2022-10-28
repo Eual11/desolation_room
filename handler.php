@@ -1,5 +1,6 @@
 <?php
 require_once "functions.php";
+session_start();
 $user = "";
 $recip = "";
 if(isset($_POST['user']))
@@ -8,9 +9,17 @@ if(isset($_POST['user']))
     $recip = sanitizeString($_POST['recip']);
     
 }
+if(isset($_POST['message']))
+{
+    $user = $_SESSION['user'];
+    $recip = sanitizeString($_POST['recip']);
+    $message = sanitizeString($_POST['message']);
+    $time = time();
+    queryMysql("insert into messages (auth,recip,time,message) values('$user','$recip',$time,'$message')");
+}
 
 echo <<<_data
-<header> <img width ='60' heigh='60' src="img/$recip.jpg" alt="">
+<header> <img width ='55' heigh='55' src="img/$recip.jpg" alt="">
 <div>$recip
     <br>
     <span id="last_seen">Last Seen Recently</span>    
@@ -42,7 +51,7 @@ echo <<<_final
             <footer>
 
                     <textarea placeholder="Type your message"></textarea>
-                    <a onclick='send("$recip")' href="#"><span class="material-symbols-rounded">
+                    <a onclick='send("$recip","$user")' href="#"><span class="material-symbols-rounded">
                     send
                     </span></a>
                     

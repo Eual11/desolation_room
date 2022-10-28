@@ -97,6 +97,7 @@ if(isset($_FILES['image']['name']))
 
 
 echo " <h3 style='color: #eeeee; text-align: center;'>$user's Profile: </h3>"; 
+
 showUser($user);
 if(isset($_GET['view']))
 
@@ -118,22 +119,24 @@ echo <<<_INFO
 </html>
 _INFO;
 }
-}
+
 else 
 {
+    $recip = $_GET['view'];
     echo <<<_INFO
 <div class = "info">
-<form style="text-align: center;" id="info" method="post" action = "profile.php" enctype="multipart/form-data"> 
-            <h3>Say somthing about yourself and/or upload a profile picture</h3>
-
-            <textarea name="text" size=100 placeholder="BIO">$text</textarea>
-            <input id="image_input" name="image" size="14" type="file">
-            <input id='submit_profile' type = 'submit' value = 'Save'>
+<form style="text-align: center;" id="info" method="post" action = "messages.php?recip=$recip" enctype="multipart/form-data">
+            <input style="width:fit-content;" id='submit_profile' type = 'submit' value = 'Send Message'>
             </form>
             </div>  
         </body>
 </html>
 _INFO;
 }
+
+
+
+}
+
 
 ?>

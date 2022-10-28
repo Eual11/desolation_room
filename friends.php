@@ -45,7 +45,7 @@ _I;
     <div class="members">
            <img width='50' height='50' class="mempfp" src="img/$member.jpg">
            <div class="mem_interface"><span>$member</span>$icon
-           <a class='mem_request' style='text-align:right;'href='#'><i class="fa-brands fa-facebook-messenger"></i></a>
+           <a class='mem_request' style='text-align:right;'href='messages.php?recip=$member'><i class="fa-brands fa-facebook-messenger"></i></a>
          
            </div>
    
