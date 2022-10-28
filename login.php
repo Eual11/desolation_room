@@ -16,7 +16,7 @@ if (isset($_POST['user']))
             session_start();
             $_SESSION['user']= $user;
             $_SESSION['pass'] = $pass;
-            header("Location:profile.php");
+            header("Location:home.php");
             exit;
         }
         else

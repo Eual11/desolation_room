@@ -38,14 +38,14 @@ echo <<<_HEADER
     </div>    
 _HEADER;
 $cur_user = $_SESSION['user']; #mock name i created to acess the db
-$result = queryMysql("select recip from messages where auth = '$cur_user' union select auth from messages where recip = 'cur_user'");
+$result = queryMysql("select recip from messages where auth = '$cur_user'");
 $num_row = $result->num_rows;
 $row1 = $result->fetch_array(MYSQLI_NUM);
-$recip = $row1[0];
+
+$recip = "";
 if(isset($_GET['recip']))
 {
     $recip = sanitizeString($_GET['recip']);
-    echo "<script>alert('rip and tear until it's done')</script>";
 }
 
 echo <<<_ASIDE
@@ -56,30 +56,33 @@ echo <<<_ASIDE
     
 
 _ASIDE;
-$result = queryMysql("select recip from messages where auth = '$cur_user' group by recip order by time");
+$result = queryMysql("select DISTINCT recip from messages where auth = '$cur_user' group by recip order by time");
+$num_row = $result->num_rows;
+$users = array();
+for($i =0; $i < $num_row; ++$i)
+{
+    $row = $result->fetch_array(MYSQLI_NUM);
+    $users[] = $row[0];
+}
+$result = queryMysql("select auth from messages where recip = '$cur_user'group by auth order by time");
 $num_row = $result->num_rows;
 for($i =0; $i < $num_row; ++$i)
 {
     $row = $result->fetch_array(MYSQLI_NUM);
-    echo <<<__users
-    <li id="$row[0]" onclick= 'recieve("$row[0]","$cur_user")'> <img width ='55' heigh='55' src="img/$row[0].jpg" alt="">
-    <div style="font-size:17px">$row[0]<br> &nbsp;
-    <span style="color:aqua; font-size:14px; ">online</span> </div>
-</li>
-__users;
+    if (!in_array($row[0],$users))
+    {$users[]=$row[0];}
 }
-$result = queryMysql("select auth from messages where recip = '$cur_user'group by recip order by time");
-$num_row = $result->num_rows;
-for($i =0; $i < $num_row; ++$i)
+$messengers = $users;
+for($i =0; $i<count($messengers);++$i)
 {
-    $row = $result->fetch_array(MYSQLI_NUM);
-    echo <<<__users
-    <li id="$row[0]" onclick= 'recieve("$row[0]","$cur_user")'> <img width ='55' heigh='55' src="img/$row[0].jpg" alt="">
-    <div style="font-size:17px">$row[0]<br> &nbsp;
+    echo <<<_ln
+    <li id="$messengers[$i]" onclick= 'recieve("$messengers[$i]","$cur_user")'> <img width ='55' heigh='55' src="img/$messengers[$i].jpg" alt="">
+    <div style="font-size:17px">$messengers[$i]<br> &nbsp;
     <span style="color:aqua; font-size:14px; ">online</span> </div>
 </li>
-__users;
+_ln;
 }
+
         
 echo <<<_last
   </ul>
@@ -93,7 +96,7 @@ echo <<<_MAIN
             <header> <img width ='55' heigh='55' src="img/$recip.jpg" alt="">
                 <div>$recip
                     <br>
-                    <span id="last_seen">Last Seen Recently</span>   
+                    <span id="last_seen">Tap on users to see chat</span>   
                 </div></header>
                 <ul id="chat">
                 
@@ -106,10 +109,7 @@ _MAIN;
 echo <<<_FOOTER
 <footer>
 
-                    <textarea placeholder="Type your message"></textarea>
-                    <a onclick='send("$recip","$cur_user")' href="#"><span class="material-symbols-rounded">
-                        send
-                        </span></a>
+                    
                     
                 </footer>
         </main>

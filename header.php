@@ -70,7 +70,7 @@ else
         <li><button form ='edit'><i style="color:#EEEEEE; font-size: 100%;" class="fa-solid fa-user-pen"></i> Edit Profile</button></li>
         <li><button form ='logout' ><i style="color:#EEEEEE; font-size: 100%;" class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button></li>            
     </ul>
-    <form id = 'home' method='post' action='#'></form>
+    <form id = 'home' method='post' action='home.php'></form>
     <form id = 'logout' method='post' action='logout.php'></form>
     <form id = 'members' method='post' action='members.php'></form>
     <form id = 'friends' method='post' action='friends.php'></form>
